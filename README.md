@@ -1,1 +1,3 @@
-# coursera
+# Coursera
+
+Assignment submissions for coursera
