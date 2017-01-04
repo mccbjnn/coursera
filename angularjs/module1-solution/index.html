@@ -11,16 +11,20 @@
   <body>
     <div class="container" ng-controller="LunchCheckController">
       <h1>Lunch Checker</h1>
-      <div class="form-group">
-        <input id="lunch-menu" type="text"
-        placeholder="list comma separated dishes you usually have for lunch"
-        class="form-control"
-        ng-model="items">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-default" ng-click="checkTooMuch()">Check If Too Much</button>
-      </div>
-      <div class="form-group message">
+      <p>empty items, i.e., , , are not considered</p>
+      <form ng-submit="checkTooMuch()">
+        <div class="form-group">
+          <input id="lunch-menu" type="text"
+          placeholder="list comma separated dishes you usually have for lunch"
+          class="form-control class="form-group""
+          ng-model="items"
+          ng-class="inputClass">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default">Check If Too Much</button>
+        </div>
+      </form>
+      <div class="form-group message" ng-class="messageClass">
         {{message}}
       </div>
     </div>

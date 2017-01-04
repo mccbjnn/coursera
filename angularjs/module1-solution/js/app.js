@@ -11,17 +11,24 @@ function LunchCheckController($scope, $filter) {
   $scope.message = "";
 
   $scope.checkTooMuch = function () {
-    if ($scope.items === "") {
-      $scope.message = "Please enter data first";
-      return;
-    }
+    var itemCount = $scope.items.split(",").filter(function(item){
+      return /\S/.test(item);
+    }).length;
 
-    var itemCount = $scope.items.split(",").length;    
-    if (itemCount <= 3) {
+    if (itemCount === 0) {
+      $scope.message = "Please enter data first";
+      $scope.inputClass = 'border-red';
+      $scope.messageClass = 'font-red';
+    }        
+    else if (itemCount <= 3) {
       $scope.message = "Enjoy!";
+      $scope.inputClass = 'border-green';
+      $scope.messageClass = 'font-green';
     }
     else if (itemCount > 3) {
       $scope.message = "Too much!";
+      $scope.inputClass = 'border-green';
+      $scope.messageClass = 'font-green';
     }
   };
 

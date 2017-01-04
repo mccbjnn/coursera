@@ -2,3 +2,27 @@
   font-size: 1.3em;
   font-weight: bold;
 }
+
+.border-red {
+  border-color: red;
+}
+
+.border-red:focus {
+  border-color: red;
+}
+
+.border-green {
+  border-color: green;
+}
+
+.border-green:focus {
+  border-color: green;
+}
+
+.font-red {
+  color: red;
+}
+
+.font-green {
+  color: green;
+}
