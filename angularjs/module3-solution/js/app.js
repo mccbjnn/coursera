@@ -70,8 +70,7 @@ function MenuSearchService($http, ApiBasePath) {
       var menuItems = result.data.menu_items;
 
       var foundItems = menuItems.filter(function(item) {
-        return item.name.toLowerCase().includes(searchTerm) ||
-          item.description.toLowerCase().includes(searchTerm);
+        return item.description.toLowerCase().includes(searchTerm);
       });
 
       items = foundItems;
