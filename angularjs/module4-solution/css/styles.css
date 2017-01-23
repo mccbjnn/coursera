@@ -1,0 +1,25 @@
+li[ui-sref]:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+div.navigation {
+  margin-bottom: 20px;
+}
+
+div.categories button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+div.items ul {
+  padding: 0;
+}
+
+div.items li {
+  list-style-type: none;
+  border: solid 1px grey;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}

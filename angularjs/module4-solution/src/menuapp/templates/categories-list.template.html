@@ -1,0 +1,9 @@
+<button class="btn btn-default" ng-repeat="item in $ctrl.items" ui-sref="items({shortName: item.short_name})">
+  {{ item.name }}
+</button>
+
+<!-- <ul>
+  <li ng-repeat="item in $ctrl.items" ui-sref="items({shortName: item.short_name})">
+    {{ item.name }}
+  </li>
+</ul> -->
