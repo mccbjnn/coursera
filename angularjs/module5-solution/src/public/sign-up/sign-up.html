@@ -1,0 +1,96 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">Sign Up</h2>
+
+  <br>
+
+  <form name="signUpForm" class="sign-up-form" novalidate>
+
+    <label for="firstName">First name</label>
+    <input type="text" name="firstName"
+      ng-model="signUpCtrl.firstName"
+      required
+      placeholder="e.g. John">
+    <span
+      ng-if="signUpForm.firstName.$error.required
+             && signUpForm.firstName.$touched">
+      *First name is required
+    </span>
+
+    <br>
+
+    <label for="lastName">Last name</label>
+    <input type="text" name="lastName"
+      ng-model="signUpCtrl.lastName"
+      required
+      placeholder="e.g. Smith">
+    <span
+      ng-if="signUpForm.lastName.$error.required
+             && signUpForm.lastName.$touched">
+      *Last name is required
+    </span>
+
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email" name="email"
+      ng-model="signUpCtrl.email"
+      placeholder="e.g. johnsmith@email.com"
+      required>
+    <span
+      ng-if="signUpForm.email.$invalid
+             && signUpForm.email.$touched">
+      *Must be a valid email address
+    </span>
+
+    <br>
+
+    <label for="phone">Phone</label>
+    <input type="number" name="phone"
+      ng-model="signUpCtrl.phone"
+      placeholder="e.g. 0123456789"
+      required
+      minlength="10">
+    <span
+      ng-if="(signUpForm.phone.$error.minlength
+             || signUpForm.phone.$error.required)
+             && signUpForm.phone.$touched">
+      *Must be a valid phone number
+    </span>
+
+    <br>
+
+    <label for="favouriteDish">Favourite Dish</label>
+    <input type="text" name="favouriteDish"
+      ng-model="signUpCtrl.favouriteDish.shortName"
+      ng-change="signUpCtrl.findDish()"
+      placeholder="e.g. L1"
+      required
+      ng-class="{'input-invalid': signUpCtrl.favouriteDish.invalid}"
+      id="favouriteDishInput">
+    <span
+      ng-if="signUpCtrl.favouriteDish.loading">
+      Loading...
+    </span>
+    <span
+      ng-if="(signUpCtrl.favouriteDish.invalid
+             || signUpForm.favouriteDish.$error.required)
+             && signUpForm.favouriteDish.$touched">
+      Must be a valid favourite dish short name
+    </span>
+
+    <br>
+
+    <div  ng-if="!signUpCtrl.submitSuccess">
+      <button
+        ng-disabled="signUpForm.$invalid"
+        ng-click="signUpCtrl.submit()">
+        Submit
+      </button>
+      <span ng-if="signUpForm.$invalid">
+        Complete all fields above
+      </span>
+    </div>
+
+    <p class="submit-success" ng-if="signUpCtrl.submitSuccess">Your information has been saved!</p>
+  </form>
+</div>
